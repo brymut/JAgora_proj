@@ -6,10 +6,14 @@ import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
 import static uk.ac.glasgow.jagora.test.stub.StubTrader.buyer;
 import static uk.ac.glasgow.jagora.test.stub.StubTrader.seller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Before;
 
 import uk.ac.glasgow.jagora.BuyOrder;
 import uk.ac.glasgow.jagora.SellOrder;
+import uk.ac.glasgow.jagora.Trader;
 import uk.ac.glasgow.jagora.impl.DefaultStockExchange;
 import uk.ac.glasgow.jagora.impl.DefaultWorld;
 import uk.ac.glasgow.jagora.test.StockExchangeTest;
@@ -34,6 +38,12 @@ public class DefaultStockExchangeTest extends StockExchangeTest {
 				new LimitSellOrder(seller, lemons, 1, 0.5),
 				new LimitSellOrder(seller, lemons, 1, 0.5),
 				new LimitSellOrder(seller, lemons, 1, 2.5)}));
+		
+		
+		subscribedTraders = new ArrayList();
+		subscribedTraders.add(buyer);
+		
+		
 
 	}
 

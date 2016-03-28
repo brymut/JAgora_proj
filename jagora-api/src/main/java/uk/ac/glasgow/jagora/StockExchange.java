@@ -64,4 +64,25 @@ public interface StockExchange {
 	 *         specified stock.
 	 */
 	public Double getBestBid(Stock stock);
+	
+	/**
+	 * Subscribes trader onto the StockMarket, to allow the Trader to receive 
+	 * notifications on changes on the stock
+	 * @param trader
+	 */
+	
+	public void subscribeTrader(Trader trader);
+	
+	/**
+	 * unsubscribes trader from the StockMarket
+	 * @param trader
+	 */
+	public void unsubscribeTrader(Trader trader);
+	
+	
+	/**
+	 *  notify all Subscribed Traders of changes
+	 */
+	
+	public void notifyTraders();
 }

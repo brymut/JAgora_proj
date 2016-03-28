@@ -9,6 +9,7 @@ import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
 import uk.ac.glasgow.jagora.Trade;
+import uk.ac.glasgow.jagora.Trader;
 
 public class StubStockExchange implements StockExchange {
 
@@ -58,6 +59,24 @@ public class StubStockExchange implements StockExchange {
 	@Override
 	public Double getBestBid(Stock stock) {
 		return 5.0;
+	}
+
+	@Override
+	public void subscribeTrader(Trader trader) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifyTraders() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unsubscribeTrader(Trader trader) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

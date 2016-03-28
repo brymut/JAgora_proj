@@ -13,6 +13,7 @@ import uk.ac.glasgow.jagora.Stock;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
 import uk.ac.glasgow.jagora.Trade;
+import uk.ac.glasgow.jagora.Trader;
 import uk.ac.glasgow.jagora.World;
 
 public class DefaultStockExchange implements StockExchange {
@@ -20,6 +21,7 @@ public class DefaultStockExchange implements StockExchange {
 	private final Map<Stock,Market> markets;
 	private World world;
 	private final List<TickEvent<Trade>> tradeHistory;
+	private List<Trader> subscribedTraders;
 	
 	public DefaultStockExchange(World world){
 		this.world = world;
@@ -88,6 +90,24 @@ public class DefaultStockExchange implements StockExchange {
 			result.append(String.format(template, stock.getName(), getBestOffer(stock), getBestBid(stock)));
 			
 		return result.delete(result.length()-2,result.length()).append("]").toString();
+	}
+
+	@Override
+	public void subscribeTrader(Trader trader) {
+		subscribedTraders.add(trader);
+		
+	}
+
+	@Override
+	public void unsubscribeTrader(Trader trader) {
+		subscribedTraders.remove(trader);
+		
+	}
+
+	@Override
+	public void notifyTraders() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

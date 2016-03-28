@@ -72,4 +72,25 @@ public interface Trader {
 	 * @return the set of stock types that this Trader has on inventory.
 	 */
 	public Set<Stock> getTradingStocks();
+	
+	
+	/**
+	 *  Register trader onto the selected stockExchange
+	 *  
+	 * @param stockexchange
+	 */
+	public void register(StockExchange stockexchange);
+	
+	/**
+	 * 	Deregister trader from the selected stockExchange
+	 * @param stockexchange
+	 */
+	public void Deregister(StockExchange stockexchange);
+	
+	/**
+	 *  allows notifications to come in on any changes that have occurred
+	 *   on the stock market
+	 */
+	
+	public void getStockMarketUpdate();
 }

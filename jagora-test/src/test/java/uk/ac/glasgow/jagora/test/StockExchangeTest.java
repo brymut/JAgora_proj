@@ -3,6 +3,8 @@ package uk.ac.glasgow.jagora.test;
 import static org.junit.Assert.*;
 import static uk.ac.glasgow.jagora.test.stub.StubStock.lemons;
 import static uk.ac.glasgow.jagora.test.stub.StubTrade.expectedPrices;
+import static uk.ac.glasgow.jagora.test.stub.StubTrader.seller;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +18,7 @@ import uk.ac.glasgow.jagora.SellOrder;
 import uk.ac.glasgow.jagora.StockExchange;
 import uk.ac.glasgow.jagora.TickEvent;
 import uk.ac.glasgow.jagora.Trade;
+import uk.ac.glasgow.jagora.Trader;
 
 /**
  * Defines tests for implementations of the stock exchange interface.
@@ -29,6 +32,10 @@ public abstract class StockExchangeTest {
 	
 	protected List<BuyOrder> buyOrders;
 	protected List<SellOrder> sellOrders;
+	
+	//changes to instance fields
+	
+	protected List<Trader> subscribedTraders;
 
 
 	@Test
@@ -109,6 +116,32 @@ public abstract class StockExchangeTest {
 			assertEquals ("", expectedPrices[i], actualPrice);
 		}	
 	}
+	
+	
+	@Test
+	public void testsubscribeTrader(){
+		
+		int numberOfSubscribedTraders = subscribedTraders.size();
+		stockExchange.subscribeTrader(seller);
+		assertEquals("Test if new Trader was added -- ",numberOfSubscribedTraders+1, subscribedTraders.size());
+		
+	}
+	
+	@Test
+	public void testunsubscribeTrader(){
+		
+		int numberOfSubscribedTraders = subscribedTraders.size();
+		stockExchange.unsubscribeTrader(seller);
+		assertEquals("Test if Trader was removed -- ",numberOfSubscribedTraders-1, subscribedTraders.size());
+		
+	}
+	
+	@Test
+	public void testNotifyTraders(){
+		//??
+	}
+	
+
 	
 	private void placeStandardOrdersAndClear() {
 		placeSellOrders (sellOrders);

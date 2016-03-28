@@ -76,4 +76,22 @@ public class StubTrader implements Trader {
 		return inventory;
 	}
 
+	@Override
+	public void register(StockExchange stockexchange) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Deregister(StockExchange stockexchange) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getStockMarketUpdate() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
