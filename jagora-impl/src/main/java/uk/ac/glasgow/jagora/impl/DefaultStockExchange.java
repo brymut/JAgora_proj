@@ -21,7 +21,7 @@ public class DefaultStockExchange implements StockExchange {
 	private final Map<Stock,Market> markets;
 	private World world;
 	private final List<TickEvent<Trade>> tradeHistory;
-	private List<Trader> subscribedTraders;
+	private List<Trader> subscribedTraders = new ArrayList<>();
 	
 	public DefaultStockExchange(World world){
 		this.world = world;

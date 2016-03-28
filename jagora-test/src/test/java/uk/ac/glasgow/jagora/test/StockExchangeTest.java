@@ -153,10 +153,12 @@ public abstract class StockExchangeTest {
 		for (BuyOrder buyOrder : buyOrders)
 			stockExchange.placeBuyOrder(buyOrder);
 	}
+
 	
 	private void placeSellOrders(List<SellOrder> buyOrders) {
 		for (SellOrder buyOrder : buyOrders)
 			stockExchange.placeSellOrder(buyOrder);
 	}
-
+	
+	
 }

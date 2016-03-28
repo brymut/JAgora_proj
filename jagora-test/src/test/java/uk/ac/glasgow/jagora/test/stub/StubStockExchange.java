@@ -15,6 +15,7 @@ public class StubStockExchange implements StockExchange {
 
 	public final List<BuyOrder> buyOrders = new ArrayList<BuyOrder>();
 	public final List<SellOrder> sellOrders = new ArrayList<SellOrder>();
+	public List<Trader> subscribedTraders = new ArrayList<>();
 	
 	@Override
 	public void doClearing() {
@@ -64,6 +65,7 @@ public class StubStockExchange implements StockExchange {
 	@Override
 	public void subscribeTrader(Trader trader) {
 		// TODO Auto-generated method stub
+		subscribedTraders.add(trader);
 		
 	}
 
